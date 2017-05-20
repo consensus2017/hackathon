@@ -1,0 +1,298 @@
+button{
+    outline: 0;
+}
+.animationWrap {
+    padding: 0px 100px;
+    float: left;
+    width: 100%;
+}
+
+.animationSection {
+    float: left;
+    width: 36%;
+    display: flex;
+    align-items: stretch;
+    text-align: center;
+}
+
+.animationSection .carTrack {
+    width: 110px;;
+    float: left;
+    border: 1px dashed #ccc;
+    position: relative;
+    min-width: 110px;
+}
+
+.animationSection img {
+    max-width: 50px;
+}
+
+.animationSection .carTrack.carTrack2 {
+    border-left: 0;
+}
+
+.animationSection .carTrack > div {
+    height: 160px;
+    line-height: 160px;
+}
+
+.animationSection .carTrack .section2 {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0ab250+0,0ab250+0,0ab250+54,8dcf50+100 */background: rgb(10,178,80); /* Old browsers */background: -moz-linear-gradient(top, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 54%, rgba(141,207,80,1) 100%); /* FF3.6-15 */background: -webkit-linear-gradient(top, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* Chrome10-25,Safari5.1-6 */background: linear-gradient(to bottom, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ab250', endColorstr='#8dcf50',GradientType=0 ); /* IE6-9 */}
+
+
+
+.content {
+    width: 64%;
+    text-align: center;
+    padding: 0 15px;
+    float: left;
+    font-size: 20px;
+}
+
+.tokenWrap.pinkSection .name,
+.tokenWrap.pinkSection .value {
+    color: #ff66ff;
+}
+
+.tokenWrap {
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.tokenWrap.RedSection .name, .tokenWrap.RedSection .value {
+    color: #ff0000;
+}
+
+.tokenWrap.blueSection .name, .tokenWrap.blueSection .value {
+    color: #0070c0;
+}
+.stepheader {
+    text-align: right;
+    padding: 20px;
+}
+
+.stepheader button {
+    width: 130px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 500;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0ab250+0,fdbe00+0,efb400+54,e4ab00+100 */
+    background: rgb(10,178,80); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(10,178,80,1) 0%, rgba(253,190,0,1) 0%, rgba(239,180,0,1) 54%, rgba(228,171,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(10,178,80,1) 0%,rgba(253,190,0,1) 0%,rgba(239,180,0,1) 54%,rgba(228,171,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(10,178,80,1) 0%,rgba(253,190,0,1) 0%,rgba(239,180,0,1) 54%,rgba(228,171,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ab250', endColorstr='#e4ab00',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #333;
+}
+.animationSection .carTrack.carTrack2 .blueCar {
+    position: absolute;
+    bottom: 34px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 3px;
+    max-width: 55px;
+}
+.animationSection .carTrack.carTrack2 .blueCar.firstStep{
+    -webkit-animation: car 3s;
+    -moz-animation: car 3s;
+    animation: car 3s;
+    bottom: 40%;
+}
+.animationSection .carTrack.carTrack2 .blueCar.secondStep{
+    -webkit-animation: step2 2s;
+    -moz-animation: step2 2s;
+    animation: step2 2s;
+    bottom: 40%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg); 
+    left: -220px;
+    background: #fff;
+}
+.section3 img {
+    position: relative;
+    top: -160px;
+}
+.section3 img.active {
+    top: 0px;
+     -webkit-animation: redcar 3s;
+    -moz-animation: redcar 3s;
+    animation: redcar 3s;
+}
+@-moz-keyframes redcar{
+    0%{
+        top: -160px;
+    }
+    100%{
+        top: 0;
+    }
+}
+@-webkit-keyframes redcar{
+    0%{
+        top: -160px;
+    }
+    100%{
+        top: 0;
+    }
+}
+@keyframes redcar{
+    0%{
+        top: -160px;
+    }
+    100%{
+        top: 0;
+    }
+}
+@-moz-keyframes car{
+    0%{
+        bottom: 34px;
+        left:0;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+}
+@-webkit-keyframes car{
+    0%{
+        bottom: 34px;
+        left:0;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+}
+@keyframes car{
+    0%{
+        bottom: 34px;
+        left:0;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    
+}
+@-moz-keyframes step2{
+    0%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    35%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    90%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    96%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left: -220px;
+        background: #fff;
+    }
+}
+@-webkit-keyframes step2{
+    0%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    35%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    90%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    96%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left: -220px;
+        background: #fff;
+    }
+}
+@keyframes step2{
+    0%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    35%{
+        bottom: 40%;
+        left:0;
+        background: transparent;
+    }
+    90%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    96%{
+        bottom: 40%;
+        left: -220px;
+        background: transparent;
+    }
+    100%{
+        bottom: 40%;
+        left: -220px;
+        background: #fff;
+    }
+}
+@media only screen and (max-width: 767px){
+    .animationWrap {
+        padding: 0 40px;
+    }
+}
+@media only screen and (max-width: 640px){
+    .animationWrap {
+        padding: 0 10px;
+    }
+}
+@media only screen and (max-width: 568px){
+    .content, .animationSection{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 480px){
+    .animationSection {
+        width: 220px;
+        margin: 0 auto 30px;
+        float: none;
+    }
+    .content {
+        width: 100%;
+        clear: both;
+    }
+    .stepheader {
+        text-align: center;
+    }
+
+    .stepheader button {
+        font-size: 16px;
+        width: 100px;
+    }
+}
