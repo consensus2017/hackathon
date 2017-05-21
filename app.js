@@ -2,7 +2,7 @@ if (typeof web3 !== 'undefined') {
   web3 = new Web3(web3.currentProvider);
 } else {
   // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  web3 = new Web3(new Web3.providers.HttpProvider("http://52.184.156.8:8545"));
 }
 
 var accounts = web3.eth.accounts;
@@ -17,7 +17,7 @@ console.log(balance.toString(10));
 // define contract object
 var BlockBox = web3.eth.contract([{"constant":false,"inputs":[],"name":"testEvent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"eventType","type":"string"},{"name":"severity","type":"uint256"},{"name":"speed","type":"uint256"},{"name":"location","type":"string"},{"name":"time","type":"uint256"},{"name":"carId","type":"string"}],"name":"logEvent","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"},{"indexed":false,"name":"EventType","type":"string"},{"indexed":false,"name":"Severity","type":"uint256"},{"indexed":false,"name":"Speed","type":"uint256"},{"indexed":false,"name":"location","type":"string"},{"indexed":false,"name":"time","type":"uint256"},{"indexed":false,"name":"carId","type":"string"}],"name":"LogEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"}],"name":"TestEvent","type":"event"}]);
 // instantiate by address
-var blockbox = BlockBox.at("0x5a3d6b2a7782e8478cbbe9bfdb22fcfc17cc98da");
+var blockbox = BlockBox.at("0x44d86cefb22485d4ae24fd0898b2084c3a53107a");
 
 // define events object for all contract events
 var events = blockbox.allEvents();
