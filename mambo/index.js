@@ -46,6 +46,7 @@ function consume_battery(){
     {
       // Send blockchain transactions
       iotHubClient.sendEvent(4);
+      landingcalled = true;
     }
   });
 }
@@ -62,6 +63,7 @@ function collect_alert(){
 function land(){
   Logger.info("Now in Land() function.")
   drone.land();
+  landingcalled = true;
 }
 
 setTimeout(consume_battery, 3000);
