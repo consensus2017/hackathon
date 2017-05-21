@@ -4,35 +4,18 @@
 const request = require('request');
 const Drone = require('parrot-minidrone');
 const Logger = require('winston');
-const clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-const Message = require('azure-iot-device').Message;
+const iotHubClient = require("./iotHubClient");
 
 const drone = new Drone({
   autoconnect: true,
 });
 
-// TODO move this into a separate file/module
-// connect to IoT Hub
-const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=SKKXIeInycoQDOdat9mXI+BcAxZuj1YxaCFzhtc3kvs=;DeviceId=testParrotMinidrone;SharedAccessKey=4X7xwgXk+AsjLV5qpKlsuDbTJ7PgWBxyAuWjav8dxME=';
-const client = clientFromConnectionString(connectionString);
+const externallyOwnerAccount = process.argv[2];
 
-const externallyOwnerAccount = process.argv[2] || '0xeea8a0d9d19deb8494e6a6422ff64218d488dd19';
-console.log("Using externally owned account " + externallyOwnerAccount);
-
-var connectCallback = function (err) {
-  if (err) {
-    console.log('Could not connect: ' + err);
-  } else {
-    console.log('Client connected');
-  }
-};
-
-// TODO async and wait until the connection is done.
-// for noe we just need to hope the IoT Huv connection is opened before an alert
-client.open(connectCallback);
+// establish connection to Azure IoT Hubs
+iotHubClient.init(externallyOwnerAccount);
 
 // connected & take off
-
 drone.on('connected', () => {
   drone.takeOff();
 });
@@ -54,6 +37,7 @@ function consume_battery(){
     }
     if (status == 'emergency'){
       // RPC w/ Blockbox
+      iotHubClient.sendEvent(4);
     }
   });
 }
@@ -61,21 +45,9 @@ function consume_battery(){
 function collect_alert(){
   drone.on('AlertStateChanged', (state) => {
     Logger.info(`Alert state-index.js: ${state}`);
-    
-    //LogType eventType, int8 severity, string location, uint64 time, string carId
-    const data = JSON.stringify({
-        deviceId: 'testParrotMinidrone',
-        eventType: 1,
-        severity: 3,
-        location: "40.758438 -73.978912",
-        time: new Date.now(),
-        externallyOwnerAccount: externallyOwnerAccount});
 
-    const message = new Message(data);
-
-    console.log("Sending message: " + message.getData());
-
-    client.sendEvent(message, printResultFor('send'));
+    // send 
+    iotHubClient.sendEvent(2);
   });
 }
 
@@ -88,3 +60,7 @@ setTimeout(consume_battery, 3000);
 setTimeout(collect_alert,3000);
 setTimeout(land, 15000);
 
+// setTimeout(function()
+// {
+//    iotHubClient.sendEvent(2);
+// }, 2000);

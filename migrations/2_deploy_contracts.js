@@ -1,5 +1,5 @@
-var Blockbox = artifacts.require("./Blockbox.sol");
+var Blackbox = artifacts.require("./Blackbox.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Blockbox);
+  deployer.deploy(Blackbox);
 };

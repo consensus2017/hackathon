@@ -7,14 +7,7 @@ const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAcces
 
 const client = clientFromConnectionString(connectionString);
 
-const externallyOwnerAccount = process.argv[2] || '0x1c3a2dffaa7d2b9c1797942f3b1a03d812dfbe9a';
-
-function printResultFor(op) {
-  return function printResult(err, res) {
-    if (err) console.log(op + ' error: ' + err.toString());
-    if (res) console.log(op + ' status: ' + res.constructor.name);
-  };
-}
+const externallyOwnerAccount = process.argv[2] || '0xea05224ff34bc59a103c85c96ae1ec16431e4fcc';
 
 var connectCallback = function (err) {
   if (err) {
@@ -30,17 +23,20 @@ var connectCallback = function (err) {
             deviceId: 'testParrotMinidrone',
             eventType: 1,
             severity: 3,
-            location: "40.758438 -73.978912",
+            latitude: "40.758438",
+            longitude: "-73.978912",
             time: Date.now(),
             externallyOwnerAccount: externallyOwnerAccount
           });
 
         const message = new Message(data);
-        message.properties.add('severityProp', 3);
 
         console.log("Sending message: " + message.getData());
 
-        client.sendEvent(message, printResultFor('send'));
+        //client.sendEvent(message, printResultFor('send'));
+        client.sendEvent(message, function(err, res) {
+          console.log(err, res);
+        });
     }, 1000);
   }
 };
