@@ -28,7 +28,8 @@
     "sweetalert2": "^6.6.3",
     "parrot-minidrone": "1.1.0",
     "winston": "^2.2.0",
-    "web3": "^0.19.0"
+    "azure-iot-device": "^1.1.12",
+    "azure-iot-device-mqtt": "^1.1.12"
   },
   "engine": "node >= 6.0.0",
   "devDependencies": {

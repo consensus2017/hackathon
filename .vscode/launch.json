@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "node",
             "request": "launch",
@@ -13,8 +14,28 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Drone",
-            "program": "${workspaceRoot}/mambo/index.js"
+            "name": "Fly Drone",
+            "program": "${workspaceRoot}/mambo/index.js",
+            "args": ["0xd517a7c4d7f7ed7b9c642a8060003c4f4cee556e"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "IoT CreateDeviceIdentity",
+            "program": "${workspaceRoot}/iot/createdeviceidentity/CreateDeviceIdentity.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Read device to cloud messages",
+            "program": "${workspaceRoot}/iot/readdevicetocloudmessages/ReadDeviceToCloudMessages.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Device Simulation",
+            "program": "${workspaceRoot}/iot/simulateddevice/SimulatedDevice.js",
+            "args": ["0x3f98b47d504db954003aaddc0a4868fdbe2e4d00"]
         }
     ]
 }
