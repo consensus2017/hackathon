@@ -1,0 +1,14 @@
+{
+  "name": "createdeviceidentity",
+  "version": "1.0.0",
+  "description": "Create a device identity on Azure IoT Hub",
+  "main": "CreateDeviceIdentity.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "azure-iothub": "^1.1.11"
+  }
+}

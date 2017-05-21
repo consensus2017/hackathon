@@ -15,6 +15,18 @@
             "request": "launch",
             "name": "Drone",
             "program": "${workspaceRoot}/mambo/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "IoT CreateDeviceIdentity",
+            "program": "${workspaceRoot}/iot/createdeviceidentity/CreateDeviceIdentity.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Device Simulation",
+            "program": "${workspaceRoot}/iot/simulateddevice/SimulatedDevice.js"
         }
     ]
 }
