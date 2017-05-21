@@ -8,10 +8,15 @@ let deployed = web3.eth.contract([{"constant":false,"inputs":[],"name":"testEven
 //console.log(deployed);
 
 // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
-deployed.logEvent.sendTransaction(1, 5, "blah", 12342435, "drine id", {from: '0xea7004f0f9d701a2bd29145979b62b9767719f49', gas:1000000}, function(err, response)
-{
-    console.log(err, response);
-});
+deployed.logEvent.sendTransaction(1, 5, "blah", 12342435, "drine id",
+    {from: '0xea7004f0f9d701a2bd29145979b62b9767719f49',
+     gas:1000000
+    },
+    function(err, response)
+    {
+        console.log(err, response);
+    }
+);
 
 // deployed.testEvent.sendTransaction({from: '0xea7004f0f9d701a2bd29145979b62b9767719f49', gas:1000000}, function(err, response)
 // {

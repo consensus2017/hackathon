@@ -9,6 +9,12 @@
             "request": "launch",
             "name": "Test Blackbox",
             "program": "${workspaceRoot}/mambo/test/testBlackboxTrans.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Drone",
+            "program": "${workspaceRoot}/mambo/index.js"
         }
     ]
 }
