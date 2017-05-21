@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "azure-event-hubs": "0.0.8"
+    "azure-event-hubs": "0.0.8",
+    "web3": "^0.19.0"
   }
 }
