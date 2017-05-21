@@ -9,13 +9,6 @@ const client = clientFromConnectionString(connectionString);
 
 const externallyOwnerAccount = process.argv[2] || '0x6f9757e6ea59f5d83033c24e10ffd641ab3103c6';
 
-function printResultFor(op) {
-  return function printResult(err, res) {
-    if (err) console.log(op + ' error: ' + err.toString());
-    if (res) console.log(op + ' status: ' + res.constructor.name);
-  };
-}
-
 var connectCallback = function (err) {
   if (err) {
     console.log('Could not connect: ' + err);
@@ -37,11 +30,13 @@ var connectCallback = function (err) {
           });
 
         const message = new Message(data);
-        message.properties.add('severityProp', 3);
 
         console.log("Sending message: " + message.getData());
 
-        client.sendEvent(message, printResultFor('send'));
+        //client.sendEvent(message, printResultFor('send'));
+        client.sendEvent(message, function(err, res) {
+          console.log(err, res);
+        });
     }, 1000);
   }
 };

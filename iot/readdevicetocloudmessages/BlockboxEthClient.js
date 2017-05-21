@@ -26,7 +26,6 @@ function logEvent(message)
 
     // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
     blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.latitude, message.body.longitude, message.body.time, message.body.deviceId,
-        // TODO move EOA to parameter
         {from: message.body.externallyOwnerAccount,
         gas:gas
         },
