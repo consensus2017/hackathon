@@ -5,6 +5,7 @@ contract Blackbox
     enum LogType {Poximity, Speeding, Indication, RedLight}
 
     event LogEvent(address observer, LogType, int8 Severity, string location, uint64 time, string carId);
+    event TestEvent(address observer);
 
     function logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
     {
@@ -14,5 +15,10 @@ contract Blackbox
         }
         
         LogEvent(msg.sender, eventType, severity, location, time, carId);
+    }
+
+    function testEvent()
+    {   
+        TestEvent(msg.sender);
     }
 }
