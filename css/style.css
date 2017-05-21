@@ -40,7 +40,6 @@ button{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0ab250+0,0ab250+0,0ab250+54,8dcf50+100 */background: rgb(10,178,80); /* Old browsers */background: -moz-linear-gradient(top, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 54%, rgba(141,207,80,1) 100%); /* FF3.6-15 */background: -webkit-linear-gradient(top, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* Chrome10-25,Safari5.1-6 */background: linear-gradient(to bottom, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ab250', endColorstr='#8dcf50',GradientType=0 ); /* IE6-9 */}
 
 
-
 .content {
     /*width: 64%;*/
     text-align: left;

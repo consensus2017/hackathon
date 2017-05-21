@@ -1,0 +1,22 @@
+{
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/consensus2017/hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/consensus2017/hackathon/issues"
+  },
+  "homepage": "https://github.com/consensus2017/hackathon#readme",
+  "dependencies": {
+    "web3": "^0.19.0"
+  }
+}
