@@ -15,9 +15,9 @@ var balance = web3.eth.getBalance(coinbase);
 console.log(balance.toString(10));
 
 // define contract object
-var BlockBox = web3.eth.contract([{"constant":false,"inputs":[],"name":"testEvent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"eventType","type":"string"},{"name":"severity","type":"uint256"},{"name":"location","type":"string"},{"name":"time","type":"uint256"},{"name":"carId","type":"string"}],"name":"logEvent","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"},{"indexed":false,"name":"EventType","type":"string"},{"indexed":false,"name":"Severity","type":"uint256"},{"indexed":false,"name":"location","type":"string"},{"indexed":false,"name":"time","type":"uint256"},{"indexed":false,"name":"carId","type":"string"}],"name":"LogEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"}],"name":"TestEvent","type":"event"}]);
+var BlockBox = web3.eth.contract([{"constant":false,"inputs":[],"name":"testEvent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"eventType","type":"string"},{"name":"severity","type":"uint256"},{"name":"speed","type":"uint256"},{"name":"location","type":"string"},{"name":"time","type":"uint256"},{"name":"carId","type":"string"}],"name":"logEvent","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"},{"indexed":false,"name":"EventType","type":"string"},{"indexed":false,"name":"Severity","type":"uint256"},{"indexed":false,"name":"Speed","type":"uint256"},{"indexed":false,"name":"location","type":"string"},{"indexed":false,"name":"time","type":"uint256"},{"indexed":false,"name":"carId","type":"string"}],"name":"LogEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"}],"name":"TestEvent","type":"event"}]);
 // instantiate by address
-var blockbox = BlockBox.at("0x338b8d5e1e220cbb763a301479c53a2b9d048256");
+var blockbox = BlockBox.at("0x5a3d6b2a7782e8478cbbe9bfdb22fcfc17cc98da");
 
 // define events object for all contract events
 var events = blockbox.allEvents();
@@ -43,15 +43,15 @@ jQuery(document).ready(function () {
       var time = Date.now();
         if (trigger == 0) {
             $('.animationSection .carTrack.carTrack2 .blueCar').addClass('firstStep');
-            logEvent('Turn Signal', 0, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
+            logEvent('Speeding', 2, 120, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
             trigger++;
         } else if (trigger == 1) {
             $('.animationSection .carTrack.carTrack2 .blueCar').addClass('secondStep');
             $('.section3 img').addClass('active');
-            logEvent('Merge Ahead', 2, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
+            logEvent('Merging Ahead', 1, 80, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
             setTimeout(function () {
-              logEvent('Merge Behind', 1, '30 Rockefeller Pl', time, $('.vid').text(), accounts[2]);
-            }, 1000);
+              logEvent('Tailgating', 4, 80, '30 Rockefeller Pl', time, $('.vid').text(), accounts[2]);
+            }, 2000);
             trigger++;
         } else if (trigger == 2) {
 
@@ -60,14 +60,15 @@ jQuery(document).ready(function () {
     $('.stepheader .restcarButton').click(function () {
         $('.animationSection .carTrack.carTrack2 .blueCar').removeClass('firstStep secondStep');
         $('.section3 img').removeClass('active');
+        $('#eventList').html("<h2>Events Log</h2>");
         $('.blueSection .value').text(blueToken);
         $('.RedSection .value').text(redToken);
         trigger = 0;
     });
 });
 
-function logEvent(type, severity, location, time, car_id, fromAddr){
-  blockbox.logEvent.sendTransaction(type, severity, location, time, car_id, {'from': fromAddr}, function(error, result){
+function logEvent(type, severity, speed, location, time, car_id, fromAddr){
+  blockbox.logEvent.sendTransaction(type, severity, speed, location, time, car_id, {'from': fromAddr}, function(error, result){
     if(!error) {
       console.log(result)
     } else {
@@ -88,6 +89,7 @@ function addEvent(event){
   } else {
     severityString = "high"
   }
+  var speed = event.args.Speed.c[0];
   var location = event.args.location;
   var observer = event.args.observer;
   var carId = event.args.carId;
@@ -106,10 +108,13 @@ function addEvent(event){
   var $severity = $("<div>", {id: "severity"});
   $severity.html("Severity: "+severityString);
   $div.append($severity);
+  var $speed = $("<div>", {id: "speed"});
+  $speed.html("Speed: "+speed+" km/h");
+  $div.append($speed);
   var $carId = $("<div>", {id: "carId"});
   $carId.html("Vehicle ID: "+carId);
   $div.append($carId);
   var $observer = $("<div>", {id: "observer"});
-  $observer.html("Observer EOA: "+observer);
+  $observer.html("Observer ETH Address: "+observer);
   $div.append($observer);
 }
