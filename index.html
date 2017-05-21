@@ -7,6 +7,8 @@
         <title>Block chain</title>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="node_modules/bignumber.js/bignumber.min.js"></script>
+        <script type="text/javascript" src="node_modules/web3/dist/web3.js"></script>
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -39,17 +41,17 @@
                     <div class="content">
                         <div class="tokenWrap pinkSection">
                             <div class="name">Pink Car</div>
-                            <div class="EOAaddress">EOA Address =</div>
+                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
                             <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
                         </div>
                         <div class="tokenWrap RedSection">
                             <div class="name">Red Car</div>
-                            <div class="EOAaddress">EOA Address =</div>
+                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
                             <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
                         </div>
                         <div class="tokenWrap blueSection">
                             <div class="name">Blue Car</div>
-                            <div class="EOAaddress">EOA Address =</div>
+                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
                             <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
                         </div>
                     </div>
@@ -58,34 +60,7 @@
 
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function () {
-                var blueToken = $('.blueSection .value').text();
-                var redToken = $('.RedSection .value').text();
-                var trigger = 0;
-                $('.stepheader .carButton').click(function () {
-                    if (trigger == 0) {
-                        $('.animationSection .carTrack.carTrack2 .blueCar').addClass('firstStep');
-                        trigger++;
-                    } else if (trigger == 1) {
-                        $('.animationSection .carTrack.carTrack2 .blueCar').addClass('secondStep');
-                        $('.section3 img').addClass('active');
-                        setTimeout(function () {
-                            var totalBlueToken = parseInt(blueToken) - 1;
-                            var totalRedToken = parseInt(redToken) + 1;
-                            $('.blueSection .value').text(totalBlueToken);
-                            $('.RedSection .value').text(totalRedToken);
-                        }, 2000);
-                    }
-                });
-                $('.stepheader .restcarButton').click(function () {
-                    $('.animationSection .carTrack.carTrack2 .blueCar').removeClass('firstStep secondStep');
-                    $('.section3 img').removeClass('active');
-                    $('.blueSection .value').text(blueToken);
-                    $('.RedSection .value').text(redToken);
-                    trigger = 0;
-                });
-            });
-        </script>
+        <script type="text/javascript" src="app.js"></script>
+
     </body>
 </html>

@@ -43,10 +43,10 @@ button{
 
 .content {
     width: 64%;
-    text-align: center;
+    text-align: left;
     padding: 0 15px;
     float: left;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .tokenWrap.pinkSection .name,
@@ -106,7 +106,7 @@ button{
     bottom: 40%;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    transform: rotate(0deg); 
+    transform: rotate(0deg);
     left: -220px;
     background: #fff;
 }
@@ -179,7 +179,7 @@ button{
         left:0;
         background: transparent;
     }
-    
+
 }
 @-moz-keyframes step2{
     0%{
