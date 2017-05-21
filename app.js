@@ -33,11 +33,11 @@ jQuery(document).ready(function () {
     var blueToken = $('.blueSection .value').text();
     var redToken = $('.RedSection .value').text();
     $('.eoa').each(function(i){
-      $(this).text(accounts[i]);
+      $(this).text(accounts[i+1]);
     });
-    $('.value').each(function(i){
-      $(this).text(web3.eth.getBalance(accounts[i]));
-    });
+    // $('.value').each(function(i){
+    //   $(this).text(web3.eth.getBalance(accounts[i]));
+    // });
     var trigger = 0;
     $('.stepheader .carButton').click(function () {
       var time = Date.now();
@@ -48,10 +48,10 @@ jQuery(document).ready(function () {
         } else if (trigger == 1) {
             $('.animationSection .carTrack.carTrack2 .blueCar').addClass('secondStep');
             $('.section3 img').addClass('active');
-            logEvent('Merging Ahead', 1, 80, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
+            logEvent('Merging', 1, 80, '30 Rockefeller Pl', time, $('.vid').text(), accounts[1]);
             setTimeout(function () {
               logEvent('Tailgating', 4, 80, '30 Rockefeller Pl', time, $('.vid').text(), accounts[2]);
-            }, 2000);
+            }, 3000);
             trigger++;
         } else if (trigger == 2) {
 
@@ -78,6 +78,7 @@ function logEvent(type, severity, speed, location, time, car_id, fromAddr){
 }
 
 function addEvent(event){
+  var blockNum = event.blockNumber;
   var eventType = event.args.EventType;
   var eventTime = new Date(event.args.time.c[0]).toString();
   var severity = event.args.Severity.c[0];
@@ -94,27 +95,34 @@ function addEvent(event){
   var observer = event.args.observer;
   var carId = event.args.carId;
   console.log("New " + eventType + " event recorded at " + eventTime + " located at " + location + " with a " + severityString + " severity rating")
-  var $div = $("<div>", {"class": "tokenWrap"});
+  var $div = $("<div>", {"class": "tokenWrap panel panel-default"});
   $("#eventList").append($div);
+  var $head = $("<div>", {"class": "panel-heading"});
+  $div.append($head);
+  var $body = $("<div>", {"class": "panel-body"});
+  $div.append($body);
+  var $block = $("<div>", {id: "block"});
+  $block.html("Block Number: "+blockNum);
+  $head.append($block);
   var $time = $("<div>", {id: "time"});
-  $time.html("Time: "+eventTime);
-  $div.append($time);
+  $time.html("Event: "+eventTime);
+  $body.append($time);
   var $location = $("<div>", {id: "location"});
   $location.html("Location: "+location);
-  $div.append($location);
+  $body.append($location);
   var $type = $("<div>", {id: "type"});
   $type.html("Type: "+eventType);
-  $div.append($type);
+  $body.append($type);
   var $severity = $("<div>", {id: "severity"});
   $severity.html("Severity: "+severityString);
-  $div.append($severity);
+  $body.append($severity);
   var $speed = $("<div>", {id: "speed"});
   $speed.html("Speed: "+speed+" km/h");
-  $div.append($speed);
+  $body.append($speed);
   var $carId = $("<div>", {id: "carId"});
   $carId.html("Vehicle ID: "+carId);
-  $div.append($carId);
+  $body.append($carId);
   var $observer = $("<div>", {id: "observer"});
   $observer.html("Observer ETH Address: "+observer);
-  $div.append($observer);
+  $body.append($observer);
 }
