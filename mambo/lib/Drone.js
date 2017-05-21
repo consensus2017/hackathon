@@ -34,7 +34,7 @@ class Drone extends EventEmitter {
     constructor(options) {
         super();
         const defaults = {
-            updateMS: 100,
+            updateMS: 50,
             autoconnect: false,
             maxAltitude: 2,
             maxTilt: 40,

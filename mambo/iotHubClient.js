@@ -23,7 +23,7 @@ function init(eoa)
     // for noe we just need to hope the IoT Huv connection is opened before an alert
     client.open(connectCallback);
 
-    externallyOwnerAccount = eoa || "0xea05224ff34bc59a103c85c96ae1ec16431e4fcc";
+    externallyOwnerAccount = eoa || "0x2b302b83bb4908329d36b577fe8084bbd1498326";
 }
 
 function printResultFor(op) {

@@ -27,6 +27,7 @@ drone.on('connected', () => {
 // 5) Corda payment
 
 var flipped=false;
+var landingcalled=false;
 
 function consume_battery(){
   drone.on('flightStatusChange', (status) => {
@@ -35,8 +36,15 @@ function consume_battery(){
       var bl = drone.getBatteryLevel();
       Logger.info(`Battery Level-index.js: ${bl}%`);
     }
-    if (status == 'emergency'){
-      // RPC w/ Blockbox
+    if (status == 'landed' ){
+      if (!landingcalled){
+        drone.takeOff();
+        Logger.info(`takeoff called again - index.js`);
+      }
+    }
+    if (status == 'emergency')
+    {
+      // Send blockchain transactions
       iotHubClient.sendEvent(4);
     }
   });
@@ -46,7 +54,7 @@ function collect_alert(){
   drone.on('AlertStateChanged', (state) => {
     Logger.info(`Alert state-index.js: ${state}`);
 
-    // send 
+    // Send blockchain transactions
     iotHubClient.sendEvent(2);
   });
 }
@@ -58,9 +66,9 @@ function land(){
 
 setTimeout(consume_battery, 3000);
 setTimeout(collect_alert,3000);
-setTimeout(land, 15000);
+setTimeout(land, 25000);
 
-// setTimeout(function()
-// {
-//    iotHubClient.sendEvent(2);
-// }, 2000);
+setTimeout(function()
+{
+   iotHubClient.sendEvent(2);
+}, 2000);

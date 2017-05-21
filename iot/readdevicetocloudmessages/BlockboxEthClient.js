@@ -1,9 +1,10 @@
 'use strict';
 const Web3 = require('web3');
 
-const host = "localhost";
+//const host = "localhost";
+const host = "52.184.156.8";
 const port = "8545";
-const defaultContractAddress = "0x4c26fc9869646998b7ae1b88fb6c103757a660a6"
+const defaultContractAddress = "0x70090d6c6f53144918edc14c1ca00625249e87c5"
 const gas = 1000000;
 
 // create an instance of web3 using the HTTP provider.
@@ -36,7 +37,13 @@ function logEvent(message)
     }
 
     // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
-    blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.latitude, message.body.longitude, message.body.time, message.body.deviceId,
+    blackboxContract.logEvent.sendTransaction(
+        message.body.eventType,
+        message.body.severity,
+        message.body.latitude,
+        message.body.longitude,
+        message.body.time,
+        message.body.deviceId,
         {from: message.body.externallyOwnerAccount,
         gas: gas
         },
