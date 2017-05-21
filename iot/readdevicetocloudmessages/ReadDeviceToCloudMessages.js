@@ -3,6 +3,7 @@ const EventHubClient = require('azure-event-hubs').Client;
 const Web3 = require('web3');
 
 const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=SKKXIeInycoQDOdat9mXI+BcAxZuj1YxaCFzhtc3kvs=';
+const gas = 1000000;
 
 // create an instance of web3 using the HTTP provider.
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -20,8 +21,9 @@ const logEvent = function (message)
 
     // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
     blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.location, message.body.time, message.body.deviceId,
+        // TODO move EOA to parameter
         {from: '0xea7004f0f9d701a2bd29145979b62b9767719f49',
-        gas:1000000
+        gas:gas
         },
         function(err, response)
         {
@@ -38,6 +40,7 @@ client.open()
             return client.createReceiver('$Default', partitionId, { 'startAfterTime' : Date.now()}).then(function(receiver) {
                 console.log('Created partition receiver: ' + partitionId)
                 receiver.on('errorReceived', printError);
+                // TODO this should really put a message on a queue or service bus for processing by a web job
                 receiver.on('message', logEvent);
             });
         });

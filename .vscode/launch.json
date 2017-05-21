@@ -14,7 +14,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Drone",
+            "name": "Fly Drone",
             "program": "${workspaceRoot}/mambo/index.js"
         },
         {
