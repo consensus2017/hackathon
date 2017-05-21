@@ -10,8 +10,7 @@ const drone = new Drone({
   autoconnect: true,
 });
 
-const externallyOwnerAccount = process.argv[2] || '0xe519926ab8a47455e38b2bd603723012de8f8371';
-console.log("Using externally owned account " + externallyOwnerAccount);
+const externallyOwnerAccount = process.argv[2];
 
 // establish connection to Azure IoT Hubs
 iotHubClient.init(externallyOwnerAccount);
@@ -38,7 +37,7 @@ function consume_battery(){
     }
     if (status == 'emergency'){
       // RPC w/ Blockbox
-      iotHubClient.sendEvent(5);
+      iotHubClient.sendEvent(4);
     }
   });
 }
@@ -61,7 +60,7 @@ setTimeout(consume_battery, 3000);
 setTimeout(collect_alert,3000);
 setTimeout(land, 15000);
 
-setTimeout(function()
-{
-   iotHubClient.sendEvent(2);
-}, 2000);
+// setTimeout(function()
+// {
+//    iotHubClient.sendEvent(2);
+// }, 2000);

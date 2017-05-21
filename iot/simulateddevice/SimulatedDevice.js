@@ -7,7 +7,7 @@ const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAcces
 
 const client = clientFromConnectionString(connectionString);
 
-const externallyOwnerAccount = process.argv[2] || '0x6f9757e6ea59f5d83033c24e10ffd641ab3103c6';
+const externallyOwnerAccount = process.argv[2] || '0xea05224ff34bc59a103c85c96ae1ec16431e4fcc';
 
 var connectCallback = function (err) {
   if (err) {

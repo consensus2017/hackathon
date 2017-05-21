@@ -127,8 +127,57 @@
       "links": {},
       "address": "0x522ecd1b07d13d3dd96886936f5ab5ec641c0d65",
       "updated_at": 1495372998325
+    },
+    "1495381490850": {
+      "events": {
+        "0xcf78bd14dc887d532b2a80910f82628cd1f4e7e9a8087dee94b8a8996958de6e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "observer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "logType",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "Severity",
+              "type": "int8"
+            },
+            {
+              "indexed": false,
+              "name": "latitude",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "longitude",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "time",
+              "type": "uint64"
+            },
+            {
+              "indexed": false,
+              "name": "vehicleId",
+              "type": "string"
+            }
+          ],
+          "name": "LogEvent",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4c26fc9869646998b7ae1b88fb6c103757a660a6",
+      "updated_at": 1495381541251
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1495372998325
+  "updated_at": 1495381541251
 }

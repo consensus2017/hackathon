@@ -23,7 +23,7 @@ function init(eoa)
     // for noe we just need to hope the IoT Huv connection is opened before an alert
     client.open(connectCallback);
 
-    externallyOwnerAccount = eoa;
+    externallyOwnerAccount = eoa || "0xea05224ff34bc59a103c85c96ae1ec16431e4fcc";
 }
 
 function printResultFor(op) {
@@ -41,7 +41,7 @@ function sendEvent(severity)
         eventType: 1,
         severity: severity,
         latitude: "40.758438",
-        longatude: "-73.978912",
+        longitude: "-73.978912",
         time: Date.now(),
         externallyOwnerAccount: externallyOwnerAccount});
 
