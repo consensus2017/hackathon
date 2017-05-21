@@ -70,7 +70,7 @@ setTimeout(consume_battery, 3000);
 setTimeout(collect_alert,3000);
 setTimeout(land, 25000);
 
-setTimeout(function()
-{
-   iotHubClient.sendEvent(2);
-}, 2000);
+// setTimeout(function()
+// {
+//    iotHubClient.sendEvent(2);
+// }, 2000);

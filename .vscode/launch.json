@@ -33,7 +33,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Device Simulation",
+            "name": "Simulation",
             "program": "${workspaceRoot}/iot/simulateddevice/SimulatedDevice.js",
             "args": ["0x2b302b83bb4908329d36b577fe8084bbd1498326"]
         }
