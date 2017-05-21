@@ -16,44 +16,54 @@
     </head>
     <body>
         <div class="stepWrap">
+          <nav class="stepheader navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Blockbox</a>
+              </div>
+              <button class="btn navbar-btn carButton">Move Car Button</button>
+              <button class="btn navbar-btn restcarButton">Reset Car Button</button>
+            </div>
+          </nav>
             <div class="container">
-                <div class="stepheader">
-                    <button class="carButton">Move Car Button</button>
-                    <button class="restcarButton">Reset Car Button</button>
-                </div>
-                <div class="animationWrap">
-                    <div class="animationSection">
+                <div class="animationWrap row">
+                    <div class="animationSection col-sm-6 col-md-4 col-lg-3">
                         <div class="carTrack carTrack1">
                             <div class="section1">
-                                <img src="img/pinkCar.png" alt=""/>
+                                <img src="img/sensorCar.jpg" alt=""/>
                             </div>
                             <div class="section2">
 
                             </div>
                             <div class="section3">
-                                <img src="img/redCar.png" alt=""/>
+                                <img src="img/sensorCar.jpg" alt=""/>
                             </div>
                         </div>
                         <div class="carTrack carTrack2">
                             <img class="blueCar" src="img/blueCar.png" alt=""/>
                         </div>
                     </div>
-                    <div class="content">
-                        <div class="tokenWrap pinkSection">
-                            <div class="name">Pink Car</div>
-                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
-                            <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
-                        </div>
-                        <div class="tokenWrap RedSection">
-                            <div class="name">Red Car</div>
-                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
-                            <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
-                        </div>
+                    <div class="content col-sm-6 col-md-8 col-lg-9">
+                      <div class="col-sm-12 col-lg-6" id="vehicleList">
                         <div class="tokenWrap blueSection">
-                            <div class="name">Blue Car</div>
-                            <div class="EOAaddress">Address = <span class="eoa"></span></div>
-                            <div class="totalToken">Number of Tokens = <span class="value">5</span></div>
+                            <div class="name">Human-Controlled Vehicle</div>
+                            <div class="EOAaddress">Vehicle ID: <span class="vid">VBUTERIN94</span></div>
+                            <div class="totalToken">Number of Tokens: <span class="value"></span></div>
                         </div>
+                        <div class="tokenWrap">
+                            <div class="name">Autonomous Vehicle 1</div>
+                            <div class="EOAaddress">EOA: <span class="eoa"></span></div>
+                            <div class="totalToken">Number of Tokens: <span class="value"></span></div>
+                        </div>
+                        <div class="tokenWrap">
+                            <div class="name">Autonomous Vehicle 2</div>
+                            <div class="EOAaddress">EOA: <span class="eoa"></span></div>
+                            <div class="totalToken">Number of Tokens: <span class="value"></span></div>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-lg-6" id="eventList">
+
+                      </div>
                     </div>
                 </div>
             </div>
