@@ -15,7 +15,8 @@
             "type": "node",
             "request": "launch",
             "name": "Fly Drone",
-            "program": "${workspaceRoot}/mambo/index.js"
+            "program": "${workspaceRoot}/mambo/index.js",
+            "args": ["0xd517a7c4d7f7ed7b9c642a8060003c4f4cee556e"]
         },
         {
             "type": "node",
@@ -33,7 +34,8 @@
             "type": "node",
             "request": "launch",
             "name": "Device Simulation",
-            "program": "${workspaceRoot}/iot/simulateddevice/SimulatedDevice.js"
+            "program": "${workspaceRoot}/iot/simulateddevice/SimulatedDevice.js",
+            "args": ["0x3f98b47d504db954003aaddc0a4868fdbe2e4d00"]
         }
     ]
 }

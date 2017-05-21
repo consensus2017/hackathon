@@ -7,6 +7,8 @@ const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAcces
 
 const client = clientFromConnectionString(connectionString);
 
+const externallyOwnerAccount = process.argv[2] || '0x1c3a2dffaa7d2b9c1797942f3b1a03d812dfbe9a';
+
 function printResultFor(op) {
   return function printResult(err, res) {
     if (err) console.log(op + ' error: ' + err.toString());
@@ -29,7 +31,9 @@ var connectCallback = function (err) {
             eventType: 1,
             severity: 3,
             location: "40.758438 -73.978912",
-            time: 1495352317});
+            time: Date.now(),
+            externallyOwnerAccount: externallyOwnerAccount
+          });
 
         const message = new Message(data);
         message.properties.add('severityProp', 3);

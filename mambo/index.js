@@ -16,6 +16,9 @@ const drone = new Drone({
 const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=SKKXIeInycoQDOdat9mXI+BcAxZuj1YxaCFzhtc3kvs=;DeviceId=testParrotMinidrone;SharedAccessKey=4X7xwgXk+AsjLV5qpKlsuDbTJ7PgWBxyAuWjav8dxME=';
 const client = clientFromConnectionString(connectionString);
 
+const externallyOwnerAccount = process.argv[2] || '0xeea8a0d9d19deb8494e6a6422ff64218d488dd19';
+console.log("Using externally owned account " + externallyOwnerAccount);
+
 var connectCallback = function (err) {
   if (err) {
     console.log('Could not connect: ' + err);
@@ -65,7 +68,8 @@ function collect_alert(){
         eventType: 1,
         severity: 3,
         location: "40.758438 -73.978912",
-        time: 1495352317});
+        time: new Date.now(),
+        externallyOwnerAccount: externallyOwnerAccount});
 
     const message = new Message(data);
 

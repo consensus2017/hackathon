@@ -19,10 +19,15 @@ const logEvent = function (message)
 {
     console.log('About to log the following safety event to Ethereum: ' + JSON.stringify(message.body));
 
+    if (!message.body.externallyOwnerAccount)
+    {
+        return console.log("No externally owned account passed from device");
+    }
+
     // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
     blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.location, message.body.time, message.body.deviceId,
         // TODO move EOA to parameter
-        {from: '0xea7004f0f9d701a2bd29145979b62b9767719f49',
+        {from: message.body.externallyOwnerAccount,
         gas:gas
         },
         function(err, response)
