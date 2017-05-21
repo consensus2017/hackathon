@@ -2,7 +2,7 @@ button{
     outline: 0;
 }
 .animationWrap {
-    padding: 0px 15Fpx;
+    padding: 0px 50px;
     float: left;
     width: 100%;
 }
@@ -13,18 +13,19 @@ button{
     display: flex;
     align-items: stretch;
     text-align: center;
+    padding: 0px 50px;
 }
 
 .animationSection .carTrack {
-    width: 110px;;
+    width: 150px;;
     float: left;
     border: 1px dashed #ccc;
     position: relative;
-    min-width: 110px;
+    min-width: 150px;
 }
 
 .animationSection img {
-    max-width: 50px;
+    max-width: 75px;
 }
 
 .animationSection .carTrack.carTrack2 {
@@ -32,21 +33,24 @@ button{
 }
 
 .animationSection .carTrack > div {
-    height: 160px;
-    line-height: 160px;
+    height: 200px;
+    line-height: 200px;
 }
 
 .animationSection .carTrack .section2 {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0ab250+0,0ab250+0,0ab250+54,8dcf50+100 */background: rgb(10,178,80); /* Old browsers */background: -moz-linear-gradient(top, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 0%, rgba(10,178,80,1) 54%, rgba(141,207,80,1) 100%); /* FF3.6-15 */background: -webkit-linear-gradient(top, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* Chrome10-25,Safari5.1-6 */background: linear-gradient(to bottom, rgba(10,178,80,1) 0%,rgba(10,178,80,1) 0%,rgba(10,178,80,1) 54%,rgba(141,207,80,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ab250', endColorstr='#8dcf50',GradientType=0 ); /* IE6-9 */}
+}
 
-
+div.container {
+  width: 120%;
+}
 
 .content {
     /*width: 64%;*/
     text-align: left;
     padding: 0 15px;
     float: left;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .tokenWrap.pinkSection .name,
@@ -57,6 +61,7 @@ button{
 .tokenWrap {
     margin-bottom: 30px;
     font-weight: 500;
+    font-size: 18px;
 }
 
 .tokenWrap.RedSection .name, .tokenWrap.RedSection .value {
@@ -90,7 +95,7 @@ button{
     right: 0;
     margin: auto;
     padding: 3px;
-    max-width: 55px;
+    max-width: 75px;
     transform: rotate(90);
 }
 .animationSection .carTrack.carTrack2 .blueCar {
@@ -100,7 +105,7 @@ button{
     right: 0;
     margin: auto;
     padding: 3px;
-    max-width: 55px;
+    max-width: 75px;
 }
 .animationSection .carTrack.carTrack2 .blueCar.firstStep{
     -webkit-animation: car 3s;
@@ -116,12 +121,12 @@ button{
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     transform: rotate(0deg);
-    left: -220px;
+    left: -296px;
     background: #fff;
 }
 .section3 img {
     position: relative;
-    top: -160px;
+    top: -200px;
 }
 .section3 img.active {
     top: 0px;
@@ -131,7 +136,7 @@ button{
 }
 @-moz-keyframes redcar{
     0%{
-        top: -160px;
+        top: -200px;
     }
     100%{
         top: 0;
@@ -139,7 +144,7 @@ button{
 }
 @-webkit-keyframes redcar{
     0%{
-        top: -160px;
+        top: -200px;
     }
     100%{
         top: 0;
@@ -147,7 +152,7 @@ button{
 }
 @keyframes redcar{
     0%{
-        top: -160px;
+        top: -200px;
     }
     100%{
         top: 0;
@@ -203,18 +208,18 @@ button{
     }
     90%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     96%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     100%{
         bottom: 40%;
-        left: -220px;
-        background: #fff;
+        left: -296px;
+        background: transparent;
     }
 }
 @-webkit-keyframes step2{
@@ -230,18 +235,18 @@ button{
     }
     90%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     96%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     100%{
         bottom: 40%;
-        left: -220px;
-        background: #fff;
+        left: -296px;
+        background: transparent;
     }
 }
 @keyframes step2{
@@ -257,18 +262,18 @@ button{
     }
     90%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     96%{
         bottom: 40%;
-        left: -220px;
+        left: -296px;
         background: transparent;
     }
     100%{
         bottom: 40%;
-        left: -220px;
-        background: #fff;
+        left: -296px;
+        background: transparent;
     }
 }
 @media only screen and (max-width: 767px){
