@@ -2,14 +2,14 @@ button{
     outline: 0;
 }
 .animationWrap {
-    padding: 0px 100px;
+    padding: 0px 15Fpx;
     float: left;
     width: 100%;
 }
 
 .animationSection {
     float: left;
-    width: 36%;
+    /*width: 36%;*/
     display: flex;
     align-items: stretch;
     text-align: center;
@@ -42,7 +42,7 @@ button{
 
 
 .content {
-    width: 64%;
+    /*width: 64%;*/
     text-align: left;
     padding: 0 15px;
     float: left;
@@ -68,14 +68,14 @@ button{
 }
 .stepheader {
     text-align: right;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 .stepheader button {
-    width: 130px;
+    /*width: 130px;
     font-size: 20px;
     padding: 10px;
-    font-weight: 500;
+    font-weight: 500;*/
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0ab250+0,fdbe00+0,efb400+54,e4ab00+100 */
     background: rgb(10,178,80); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(10,178,80,1) 0%, rgba(253,190,0,1) 0%, rgba(239,180,0,1) 54%, rgba(228,171,0,1) 100%); /* FF3.6-15 */
@@ -83,6 +83,15 @@ button{
     background: linear-gradient(to bottom, rgba(10,178,80,1) 0%,rgba(253,190,0,1) 0%,rgba(239,180,0,1) 54%,rgba(228,171,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ab250', endColorstr='#e4ab00',GradientType=0 ); /* IE6-9 */
     border: 1px solid #333;
+}.animationSection .carTrack.carTrack2 .sensorCar {
+    position: absolute;
+    bottom: 34px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 3px;
+    max-width: 55px;
+    transform: rotate(90);
 }
 .animationSection .carTrack.carTrack2 .blueCar {
     position: absolute;
