@@ -7,7 +7,7 @@ const connectionString = 'HostName=VirtualBlackBox.azure-devices.net;SharedAcces
 
 const client = clientFromConnectionString(connectionString);
 
-const externallyOwnerAccount = process.argv[2] || '0x1c3a2dffaa7d2b9c1797942f3b1a03d812dfbe9a';
+const externallyOwnerAccount = process.argv[2] || '0x6f9757e6ea59f5d83033c24e10ffd641ab3103c6';
 
 function printResultFor(op) {
   return function printResult(err, res) {
@@ -30,7 +30,8 @@ var connectCallback = function (err) {
             deviceId: 'testParrotMinidrone',
             eventType: 1,
             severity: 3,
-            location: "40.758438 -73.978912",
+            latitude: "40.758438",
+            longitude: "-73.978912",
             time: Date.now(),
             externallyOwnerAccount: externallyOwnerAccount
           });

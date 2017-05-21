@@ -11,7 +11,7 @@ function init(contractAddress)
 {
     const blockboxContractAddress = contractAddress || '0xf71ca8f7a14aa5c929d5391994dce35b30078c3b';
 
-    blackboxContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"testEvent","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"eventType","type":"uint8"},{"name":"severity","type":"int8"},{"name":"location","type":"string"},{"name":"time","type":"uint64"},{"name":"carId","type":"string"}],"name":"logEvent","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"},{"indexed":false,"name":"","type":"uint8"},{"indexed":false,"name":"Severity","type":"int8"},{"indexed":false,"name":"location","type":"string"},{"indexed":false,"name":"time","type":"uint64"},{"indexed":false,"name":"carId","type":"string"}],"name":"LogEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"}],"name":"TestEvent","type":"event"}])
+    blackboxContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"eventType","type":"string"},{"name":"severity","type":"int8"},{"name":"latitude","type":"int256"},{"name":"longitude","type":"int256"},{"name":"time","type":"uint64"},{"name":"vehicleId","type":"string"}],"name":"logEvent","outputs":[],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"observer","type":"address"},{"indexed":false,"name":"logType","type":"string"},{"indexed":false,"name":"Severity","type":"int8"},{"indexed":false,"name":"latitude","type":"int256"},{"indexed":false,"name":"longitude","type":"int256"},{"indexed":false,"name":"time","type":"uint64"},{"indexed":false,"name":"vehicleId","type":"string"}],"name":"LogEvent","type":"event"}])
         .at(blockboxContractAddress);
 }
 
@@ -25,7 +25,7 @@ function logEvent(message)
     }
 
     // logEvent(LogType eventType, int8 severity, string location, uint64 time, string carId)
-    blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.location, message.body.time, message.body.deviceId,
+    blackboxContract.logEvent.sendTransaction(message.body.eventType, message.body.severity, message.body.latitude, message.body.longitude, message.body.time, message.body.deviceId,
         // TODO move EOA to parameter
         {from: message.body.externallyOwnerAccount,
         gas:gas
