@@ -34,7 +34,7 @@ The smart contracts are under the contracts folder.
 * [Blackbox.sol](./contracts/blackbox.sol) used for the drone demo
 * [blockbox.sol](./contracts/blockbox.sol) used for the car demo 
 
-Truffle generates the ABI
+Truffle generates the ABI under [build/contracts](./build/contracts)
 
 ## Node.js programs
 * [index.js](./mambo/index.js) controls the drone and talks to Azure IoT Hub
@@ -46,3 +46,5 @@ Truffle generates the ABI
 * [Devpost](https://devpost.com/software/blockbox) for team
 * Original [Whiterpaper](./whitepaper.md) in preparation for the hackathon
 * [Azure IoT Hub tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted)
+* [Azure Portal](https://portal.azure.com/)
+* [Microsoft Power BI](https://powerbi.microsoft.com/en-us/)
