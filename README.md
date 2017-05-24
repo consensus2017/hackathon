@@ -27,7 +27,7 @@ Each vehicle will record safety events on the blockchain by interacting with a s
 These events are sent to the Azure IoT hub, and can be connected to custom event handlers. In our demo we send an contract call that displays the location of the incident which can dispatch emergency services.
 
 ## Architecture
-![./ArchitectureDiagram.png]
+![ArchitectureDiagram](ArchitectureDiagram.png)
 
 ## Smart Contract
 The smart contracts are under the contracts folder.
@@ -45,3 +45,4 @@ Truffle generates the ABI
 ## Links
 * [Devpost](https://devpost.com/software/blockbox) for team
 * Original [Whiterpaper](./whitepaper.md) in preparation for the hackathon
+* [Azure IoT Hub tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted)
