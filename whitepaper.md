@@ -1,12 +1,14 @@
 # Blockchain-based Management System for Autonomous and Manual Traffic
 
-## Overview
+## WHITEPAPER DRAFT - v0.1
 
-We present a simple system for managing road traffic using a peer-to-peer  blockchain solution. The system models vehicles as peers and roads as resources to be claimed and shared. We also include a set of trusted nodes (government-owned) which serve to validate certain types of transaction on the network.
+## Overview and Background
 
-This system is intended to help manage the movement of a set of vehicles within close proximity on a public road network. The system caters for both autonomous and human drivers, anticipating the potential difficulties occurring between autonomous-to-autonomous and automonous-to-manual vehicle interaction as the global fleet of autonomous vehicles increases.  A particular difficulty may arise for example with a significant proportion (> 50%) of courteous autonomous cars on a public road, shared with discourteous human drivers.
+We consider a set of design considerations for managing road traffic using blockchain technology. We present a system that models vehicles (including cars, trucks or drones) as 'peers', and physical roads as 'resources' to be claimed by peers for use and shared with other peers in an optimised way. We also include a set of trusted nodes (government-owned) which serve to validate certain types of transaction on the network.
 
-For fully autonomous traffic, the system will manage the peer-to-peer negotiation with other cars to move along the road network. For a partially manual fleet of vehicles, a blockchain records where consensus was not reached for a proposed state transition (communicated via a proposed transaction), and a manually-driven car makes the transition anyway. This provides us a measure of driving reputation which would be negatively impacted for a node for poor or dangerous driving, and bad manners, as agreed by all neighbouring cars.
+This system is intended to help manage the movement of a set of congested vehicles on a public road network. The system caters for both autonomous and human drivers, anticipating the potential difficulties occurring between autonomous-to-autonomous and automonous-to-manual vehicle interaction as the global fleet of autonomous vehicles increases.  A particular difficulty may arise for example with a significant proportion (> 50%) of courteous autonomous cars on a public road, shared with discourteous human drivers.
+
+For fully autonomous traffic, the system will manage the peer-to-peer negotiation with other cars to move along the road network. For a partially manual fleet of vehicles, a blockchain records where consensus was not reached for a proposed state transition (communicated via a proposed transaction), and a manually-driven car makes the transition anyway. This provides us a measure of driving reputation which would be negatively impacted for a node for poor or dangerous driving, and bad manners, as agreed by all neighbouring cars (by conensus of nearby vehicles, poor reputation would be accumulated by poor driving behaviour).
 
 A blockchain-based implementation makes sense for the following reasons:
 
@@ -15,9 +17,13 @@ A blockchain-based implementation makes sense for the following reasons:
 - disintermediated time-stamping of events that would be a useful data source for insurance or crash investigation (blockchains are time-series state transition systems)
 - traffic management has clear state-machine-like abstraction
 
-A demonstration of a blockchain implementation for such a system would also prove the ability of the technology to manage high throughput situations, as the block time for such a system would have to occur many multiple times per second (e.g. 10-100 milliseconds) in order for the system to operate in real-time.
+A demonstration of a blockchain implementation for such a system would also prove the ability of the technology to manage high throughput situations, as the block time for such a system would have to occur many multiple times per second (e.g. 10-100 milliseconds) in order to operate in (near) real-time.
 
-Our system develops micro-market-driven efficiency for traffic movement. It would allow nodes (or their passengers/owners) to set a 'hurried' parameter that could be used to automate either the spending of roadCredits if they wish to arrive at a destination as soon as possible, or to accumulate them for later use if they elect to take their time and concede positions along the way. Pay-to-use system / IOT / micropayments.
+The system is intended to develop micro-market-driven efficiency for traffic movement. We envision nodes (or their passengers/owners) being able to set a 'priority' parameter to be used to automate either the spending of roadCredits if they wish to arrive at a destination as soon as possible, or to accumulate them for later use if they elect to take their time and concede positions along the way. The ultimate solution would include elements of  Pay-to-use system / IOT / micropayments.
+
+## Specific Implementation (for the Consensus 2017 Hackathon)
+
+For the Consensus 2017 Hackathon our team focused on the safety-related telemetry information that could be gathered from such a system. We developed a virtual black box "BlockBox" that could collect a trusted datastore for post analysis (for the purpose of, for example, insurance premium optimisation). The system could also be used for near-real-time emergency services dispatch in the case of high-severity incident.
 
 ## Definitions and Segmentations
 
@@ -58,9 +64,9 @@ A node's next state transition is defined by the substrate of the traffic system
 
 Hence, we define a **resource** as a single lane on a road.  
 
-We then define an **asset** as the resource space currently occupied by a node, including the minimum safe distance to the front and the rear of the node, based on the node's velocity. In practice, when a node is in formation, the asset is that position in the formation.**
+We then define an **asset** as the resource space currently occupied by a node, including the minimum safe distance to the front and the rear of the node, based on the node's velocity. In practice, when a node is in formation, the asset is that position in the formation.
 
-*NEED: to think through this a little more. Perhaps it's easier to just define the asset as that position in the formation on that resource.*
+_Future Work: Need to think through this a little more. Perhaps it's easier to just define the asset as that position in the formation on that resource._
 
 We ignore minimum safe distances to the side for simplicity.
 
@@ -129,13 +135,12 @@ Peers will need to replicate the state of all connected peers up to 2 hops in th
 
 ## Example Overview
 
-Consider an example with 3 nodes on a road with two lanes. Recall that lanes are defined as resources. The following interplay occurs:
+Consider an example with three nodes on a road with two lanes. Recall that lanes are defined as resources. The following interplay occurs:
 
 - Two cars, nodes (A and B) are initially connected in a formation, travelling within the one resource.
 - A third node, C, drives up beside them in a seperate lane.
-- As the 3rd car approaches, it comes within minimum proximal range and initiates a peer connection with firstly B, and then with A (it encounters B before A, proximally). Note that even though C is now connected to A and B in a network of 3 peers, only A and B are in formation as formations are only made on a resource. 
+- As C approaches, it comes within minimum proximal range and initiates a peer connection with firstly B, and then with A (it encounters B before A, proximally). Note that even though C is now connected to A and B in a network of 3 peers, only A and B are in formation as formations are only made on a resource. 
 - Car C generates a transaction proposal to move into the asset/position owned by car B, that is, to remake the linear formation of 2 into a formation of 3 by moving car B back one position. Car C would effectively be taking this asset away from car B.
-  - Does the propsoal include a price to take that position? And is this what is used to help gain consensus?
 - The proposal is broadcast across the **network** (not the formation).
 - All nodes connected in the network (to the pre-defined network depth) gain consensus about the validity of the transaction, accounting for priority, reputation and roadCredits balance coefficients.
 - State transition occurs.
@@ -143,11 +148,11 @@ Consider an example with 3 nodes on a road with two lanes. Recall that lanes are
 
 
 
-## ToDo / Future Work:
+## Future Work
 
-We can consider a priority-token system that can be used by specialist vehicles (such as ambulance), or by regular vehicles who need to make
+We can consider a priority-token system that can be used by specialist vehicles (such as ambulance), or by regular vehicles who need to change to an emergency state and and transmit this to nearby peers initially, and then the trusted datastore.
 
-If consensus is reached and B still makes the transition manually => reputaiton impact.
+If consensus is reached and B still makes the transition manually, this would result in an accumulated reputation impact with a slow decay function.
 
-
+Outstanding questions around: transaction propsoal including a price to take that position / using this to help gain localised consensus.
 
