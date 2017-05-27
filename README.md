@@ -34,6 +34,24 @@ The smart contracts are under the contracts folder.
 * [Blackbox.sol](./contracts/blackbox.sol) used for the drone demo
 * [blockbox.sol](./contracts/blockbox.sol) used for the car demo 
 
+## testRPC
+testRPC can be installed using npm which comes with Node.js
+```
+npm install -g ethereumjs-testrpc
+```
+
+To run testRPC simply run `testrpc` at the command line
+
+## Truffle
+Truffle can be installed using npm which comes wirth Node.js
+```
+npm install -g truffle
+```
+
+Use `truffle compile` to compile all the contracts in the `contracts` folder
+
+Use `truffle deploy` to deploy the compiled contracts. If the contracts are not compiled deploy will compile them for you.
+
 Truffle generates the ABI under [build/contracts](./build/contracts)
 
 ## Web demo of cars changing lanes
