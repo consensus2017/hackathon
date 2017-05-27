@@ -45,6 +45,7 @@ Truffle generates the ABI under [build/contracts](./build/contracts)
 ## Links
 * [Devpost](https://devpost.com/software/blockbox) for team
 * Original [Whiterpaper](./whitepaper.md) in preparation for the hackathon
+* [Pitch deck](./Virtual_Blackbox_Pitch_Deck_v2.pptx)
 * [Azure IoT Hub tutorial](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-node-node-getstarted)
 * [Azure Portal](https://portal.azure.com/)
 * [Microsoft Power BI](https://powerbi.microsoft.com/en-us/)
